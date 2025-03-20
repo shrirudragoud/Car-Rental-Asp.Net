@@ -1,0 +1,96 @@
+@model CarRentalWeb.Models.Car
+
+@{
+    ViewData["Title"] = "Car Details";
+}
+
+<div class="container">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">Car Details</h4>
+            <span class="badge @(Model.IsAvailable ? "bg-success" : "bg-danger")">
+                @(Model.IsAvailable ? "Available" : "Not Available")
+            </span>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="@(string.IsNullOrEmpty(Model.ImageUrl) ? "/images/default-car.jpg" : Model.ImageUrl)" 
+                         class="img-fluid rounded" alt="@Model.GetFullName()"
+                         style="width: 100%; object-fit: cover;"
+                         onerror="this.onerror=null; this.src='/images/default-car.jpg';" />
+                </div>
+                <div class="col-md-6">
+                    <h5>@Model.GetFullName()</h5>
+                    <p class="text-muted mb-4">Daily Rate: @Model.GetFormattedDailyRate()</p>
+
+                    @if (Model.Bookings != null && Model.Bookings.Any())
+                    {
+                        <div class="mb-4">
+                            <h6>Upcoming Bookings:</h6>
+                            <div class="list-group">
+                                @foreach (var booking in Model.Bookings.Where(b => !b.IsCancelled && b.EndDate >= DateTime.Today).OrderBy(b => b.StartDate).Take(3))
+                                {
+                                    string statusClass = booking.IsCancelled ? "bg-danger" :
+                                                       booking.IsActive() ? "bg-success" :
+                                                       booking.IsUpcoming() ? "bg-info" : "bg-secondary";
+
+                                    string statusText = booking.IsCancelled ? "Cancelled" :
+                                                      booking.IsActive() ? "Active" :
+                                                      booking.IsUpcoming() ? "Upcoming" : "Completed";
+
+                                    <div class="list-group-item">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span>@booking.StartDate.ToString("MMM dd") - @booking.EndDate.ToString("MMM dd, yyyy")</span>
+                                            <span class="badge @statusClass">@statusText</span>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+
+                    <div class="d-grid gap-2">
+                        @if (User.Identity?.IsAuthenticated ?? false)
+                        {
+                            if (Model.IsAvailable)
+                            {
+                                <a asp-controller="Bookings" asp-action="Create" asp-route-carId="@Model.Id"
+                                   class="btn btn-success">
+                                    <i class="fas fa-calendar-plus"></i> Book Now
+                                </a>
+                            }
+                            else
+                            {
+                                <button class="btn btn-secondary" disabled>
+                                    <i class="fas fa-ban"></i> Not Available
+                                </button>
+                            }
+                        }
+                        else
+                        {
+                            <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary">
+                                <i class="fas fa-sign-in-alt"></i> Login to Book
+                            </a>
+                        }
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">
+                                <i class="fas fa-trash"></i> Delete
+                            </a>
+                        }
+
+                        <a asp-action="Index" class="btn btn-outline-primary">
+                            <i class="fas fa-arrow-left"></i> Back to List
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

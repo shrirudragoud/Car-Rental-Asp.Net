@@ -1,0 +1,205 @@
+@model CarRentalWeb.Models.Car
+
+@{
+    ViewData["Title"] = "Add New Car";
+}
+
+<div class="container">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index">Cars</a></li>
+            <li class="breadcrumb-item active">Add New Car</li>
+        </ol>
+    </nav>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Add New Car</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" class="needs-validation" novalidate>
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="imagePreview" class="mb-3">
+                                    <div class="d-flex align-items-center justify-content-center bg-light rounded" 
+                                         style="height: 300px;">
+                                        <i class="fas fa-car fa-4x text-secondary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Brand" class="form-label required"></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-car"></i></span>
+                                        <input asp-for="Brand" class="form-control" required 
+                                               placeholder="Enter car brand (e.g., Toyota)" />
+                                    </div>
+                                    <span asp-validation-for="Brand" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label asp-for="Model" class="form-label required"></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-info-circle"></i></span>
+                                        <input asp-for="Model" class="form-control" required 
+                                               placeholder="Enter car model (e.g., Camry)" />
+                                    </div>
+                                    <span asp-validation-for="Model" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label asp-for="DailyRate" class="form-label required"></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input asp-for="DailyRate" class="form-control" type="number" 
+                                               step="0.01" min="0.01" required 
+                                               placeholder="Enter daily rental rate" />
+                                    </div>
+                                    <span asp-validation-for="DailyRate" class="text-danger"></span>
+                                    <small class="form-text text-muted">Enter the daily rental rate in dollars</small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label asp-for="ImageUrl" class="form-label">Image URL</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-image"></i></span>
+                                        <input asp-for="ImageUrl" class="form-control" id="imageUrlInput" 
+                                               placeholder="Enter image URL" />
+                                        <button type="button" class="btn btn-outline-secondary" id="previewButton">
+                                            <i class="fas fa-eye"></i> Preview
+                                        </button>
+                                    </div>
+                                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                                    <small class="form-text text-muted">
+                                        Enter a valid image URL (e.g., https://example.com/car.jpg)
+                                    </small>
+                                    <div class="mt-2">
+                                        <h6>Sample Car Image URLs:</h6>
+                                        <div class="list-group">
+                                            <button type="button" class="list-group-item list-group-item-action sample-image" 
+                                                    data-url="https://imgd.aeplcdn.com/664x374/cw/ec/23766/Ford-Mustang-Exterior-126883.jpg">
+                                                Ford Mustang
+                                            </button>
+                                            <button type="button" class="list-group-item list-group-item-action sample-image" 
+                                                    data-url="https://imgd.aeplcdn.com/664x374/n/cw/ec/130591/fronx-exterior-right-front-three-quarter-4.jpeg">
+                                                Suzuki Fronx
+                                            </button>
+                                            <button type="button" class="list-group-item list-group-item-action sample-image" 
+                                                    data-url="https://imgd.aeplcdn.com/664x374/n/cw/ec/141115/c-class-exterior-right-front-three-quarter.jpeg">
+                                                Mercedes C-Class
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="form-check form-switch">
+                                        <input asp-for="IsAvailable" class="form-check-input" type="checkbox" checked />
+                                        <label asp-for="IsAvailable" class="form-check-label"></label>
+                                    </div>
+                                    <span asp-validation-for="IsAvailable" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Back to List
+                            </a>
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-plus-circle"></i> Create Car
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            function showImagePreview(url) {
+                if (url) {
+                    var img = $('<img>', {
+                        src: url,
+                        class: 'img-fluid rounded',
+                        alt: 'Car Preview',
+                        style: 'max-height: 300px; width: 100%; object-fit: cover;'
+                    });
+                    
+                    img.on('error', function() {
+                        showDefaultImage();
+                        alert('Invalid image URL or image not accessible. Please check the URL.');
+                    });
+
+                    $('#imagePreview').html(img);
+                } else {
+                    showDefaultImage();
+                }
+            }
+
+            function showDefaultImage() {
+                var placeholder = `
+                    <div class="d-flex align-items-center justify-content-center bg-light rounded" style="height: 300px;">
+                        <i class="fas fa-car fa-4x text-secondary"></i>
+                    </div>`;
+                $('#imagePreview').html(placeholder);
+            }
+
+            // Preview button click handler
+            $('#previewButton').on('click', function() {
+                showImagePreview($('#imageUrlInput').val());
+            });
+
+            // Sample image click handler
+            $('.sample-image').on('click', function() {
+                var url = $(this).data('url');
+                $('#imageUrlInput').val(url);
+                showImagePreview(url);
+            });
+
+            // Form validation
+            $('form').on('submit', function(event) {
+                if (!this.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                $(this).addClass('was-validated');
+            });
+
+            // Daily rate validation
+            $('#DailyRate').on('input', function() {
+                var rate = parseFloat($(this).val());
+                if (rate <= 0) {
+                    $(this).addClass('is-invalid');
+                    $(this).next('.invalid-feedback').text('Daily rate must be greater than 0');
+                } else {
+                    $(this).removeClass('is-invalid');
+                }
+            });
+        });
+    </script>
+}
+
+<style>
+    .required::after {
+        content: " *";
+        color: red;
+    }
+
+    .sample-image {
+        cursor: pointer;
+    }
+
+    .sample-image:hover {
+        background-color: #f8f9fa;
+    }
+</style>

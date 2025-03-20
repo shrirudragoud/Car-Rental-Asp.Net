@@ -1,0 +1,64 @@
+@model CarRentalWeb.Models.Booking
+
+@{
+    ViewData["Title"] = "Cancel Booking";
+}
+
+<div class="container">
+    <div class="card shadow">
+        <div class="card-header bg-danger text-white">
+            <h4 class="mb-0">Cancel Booking</h4>
+        </div>
+
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <h5 class="alert-heading">
+                    <i class="fas fa-exclamation-triangle"></i> Are you sure you want to cancel this booking?
+                </h5>
+                <p class="mb-0">This action cannot be undone.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    @if (Model.Car != null)
+                    {
+                        <img src="@(string.IsNullOrEmpty(Model.Car.ImageUrl) ? "/images/default-car.jpg" : Model.Car.ImageUrl)" 
+                             class="img-fluid rounded" alt="@Model.Car.GetFullName()"
+                             style="width: 100%; object-fit: cover;"
+                             onerror="this.onerror=null; this.src='/images/default-car.jpg';" />
+                    }
+                </div>
+                <div class="col-md-8">
+                    @if (Model.Car != null)
+                    {
+                        <h5>@Model.Car.GetFullName()</h5>
+                    }
+
+                    <div class="mb-3">
+                        <label class="fw-bold">Duration:</label>
+                        <p class="mb-0">@Model.GetDurationInDays() days</p>
+                        <small class="text-muted">
+                            From @Model.StartDate.ToString("MMM dd, yyyy") to @Model.EndDate.ToString("MMM dd, yyyy")
+                        </small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="fw-bold">Total Price:</label>
+                        <p class="mb-0">@Model.GetFormattedPrice()</p>
+                    </div>
+                </div>
+            </div>
+
+            <form asp-controller="Bookings" asp-action="Cancel" asp-route-id="@Model.Id" method="post" class="mt-4">
+                <div class="d-flex justify-content-between">
+                    <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-primary">
+                        <i class="fas fa-arrow-left"></i> Back to Details
+                    </a>
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-times-circle"></i> Confirm Cancellation
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

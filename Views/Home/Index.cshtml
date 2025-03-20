@@ -1,0 +1,82 @@
+﻿@model IEnumerable<CarRentalWeb.Models.Car>
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col">
+            <div class="jumbotron bg-light p-5 rounded">
+                <h1 class="display-4">Welcome to Car Rental</h1>
+                <p class="lead">Find and book your perfect rental car for your next journey.</p>
+                <hr class="my-4">
+                <p>Browse our collection of cars and book instantly.</p>
+                <a class="btn btn-primary btn-lg" asp-controller="Cars" asp-action="Index">
+                    <i class="fas fa-car"></i> Browse Cars
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <h2 class="mb-4">Featured Cars</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var car in Model.Take(3))
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="@(string.IsNullOrEmpty(car.ImageUrl) ? "/images/default-car.jpg" : car.ImageUrl)" 
+                             class="card-img-top" alt="@car.GetFullName()"
+                             style="height: 200px; object-fit: cover;"
+                             onerror="this.onerror=null; this.src='/images/default-car.jpg';" />
+                        
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <h5 class="card-title mb-0">@car.GetFullName()</h5>
+                                <span class="badge @(car.IsAvailable ? "bg-success" : "bg-danger")">
+                                    @(car.IsAvailable ? "Available" : "Not Available")
+                                </span>
+                            </div>
+                            <p class="card-text text-muted mt-2">@car.GetFormattedDailyRate() per day</p>
+                        </div>
+
+                        <div class="card-footer bg-transparent">
+                            <div class="d-grid">
+                                @if (User.Identity?.IsAuthenticated ?? false)
+                                {
+                                    if (car.IsAvailable)
+                                    {
+                                        <a asp-controller="Bookings" asp-action="Create" asp-route-carId="@car.Id"
+                                           class="btn btn-success">
+                                            <i class="fas fa-calendar-plus"></i> Book Now
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <button class="btn btn-secondary" disabled>
+                                            <i class="fas fa-ban"></i> Not Available
+                                        </button>
+                                    }
+                                }
+                                else
+                                {
+                                    <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary">
+                                        <i class="fas fa-sign-in-alt"></i> Login to Book
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        
+        <div class="text-center mt-4">
+            <a asp-controller="Cars" asp-action="Index" class="btn btn-outline-primary btn-lg">
+                <i class="fas fa-car"></i> View All Cars
+            </a>
+        </div>
+    }
+</div>

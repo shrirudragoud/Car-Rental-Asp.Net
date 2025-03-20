@@ -1,0 +1,138 @@
+@model CarRentalWeb.Models.Booking
+
+@{
+    ViewData["Title"] = "Create Booking";
+}
+
+<div class="container">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Book a Car</h4>
+        </div>
+        <div class="card-body">
+            @if (Model.Car != null)
+            {
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <img src="@(string.IsNullOrEmpty(Model.Car.ImageUrl) ? "/images/default-car.jpg" : Model.Car.ImageUrl)" 
+                             class="img-fluid rounded" alt="@Model.Car.GetFullName()"
+                             style="max-height: 200px; width: 100%; object-fit: cover;"
+                             onerror="this.onerror=null; this.src='/images/default-car.jpg';" />
+                    </div>
+                    <div class="col-md-6">
+                        <h5>@Model.Car.GetFullName()</h5>
+                        <p class="mb-1">Daily Rate: @Model.Car.GetFormattedDailyRate()</p>
+                        @if (Model.Car.IsAvailable)
+                        {
+                            <span class="badge bg-success">Available</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Not Available</span>
+                        }
+                    </div>
+                </div>
+
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                    
+                    <input type="hidden" asp-for="CarId" />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="StartDate" class="form-label required"></label>
+                                <input asp-for="StartDate" class="form-control" type="date" 
+                                       min="@DateTime.Today.ToString("yyyy-MM-dd")" required />
+                                <span asp-validation-for="StartDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="EndDate" class="form-label required"></label>
+                                <input asp-for="EndDate" class="form-control" type="date" 
+                                       min="@DateTime.Today.ToString("yyyy-MM-dd")" required />
+                                <span asp-validation-for="EndDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info mb-4" id="bookingSummary" style="display: none;">
+                        <h6 class="alert-heading">Booking Summary</h6>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6">Duration:</div>
+                            <div class="col-6 text-end"><span id="duration">0</span> days</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">Total Price:</div>
+                            <div class="col-6 text-end">
+                                <strong>$<span id="totalPrice">0.00</span></strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-check-circle"></i> Confirm Booking
+                        </button>
+                        <a asp-controller="Cars" asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="fas fa-times-circle"></i> Cancel
+                        </a>
+                    </div>
+                </form>
+            }
+            else
+            {
+                <div class="alert alert-danger">
+                    <i class="fas fa-exclamation-circle"></i> Car not found or not available.
+                </div>
+                <a asp-controller="Cars" asp-action="Index" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> Back to Cars List
+                </a>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function() {
+            const dailyRate = @Html.Raw(Json.Serialize(Model.Car?.DailyRate ?? 0));
+            
+            function updateBookingSummary() {
+                const startDate = new Date($('#StartDate').val());
+                const endDate = new Date($('#EndDate').val());
+
+                if (startDate && endDate && startDate <= endDate) {
+                    const duration = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
+                    const totalPrice = (dailyRate * duration).toFixed(2);
+
+                    $('#duration').text(duration);
+                    $('#totalPrice').text(totalPrice);
+                    $('#bookingSummary').slideDown();
+                } else {
+                    $('#bookingSummary').slideUp();
+                }
+            }
+
+            $('#StartDate, #EndDate').on('change', updateBookingSummary);
+
+            $('#StartDate').on('change', function() {
+                $('#EndDate').attr('min', $(this).val());
+                if ($('#EndDate').val() < $(this).val()) {
+                    $('#EndDate').val($(this).val());
+                }
+                updateBookingSummary();
+            });
+        });
+    </script>
+}
+
+<style>
+    .required::after {
+        content: " *";
+        color: red;
+    }
+</style>

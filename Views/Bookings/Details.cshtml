@@ -1,0 +1,72 @@
+@model CarRentalWeb.Models.Booking
+
+@{
+    ViewData["Title"] = "Booking Details";
+    
+    string badgeClass = Model.IsCancelled ? "bg-danger" :
+                       Model.IsActive() ? "bg-success" :
+                       Model.IsUpcoming() ? "bg-info" : "bg-secondary";
+    
+    string statusText = Model.IsCancelled ? "Cancelled" :
+                       Model.IsActive() ? "Active" :
+                       Model.IsUpcoming() ? "Upcoming" : "Completed";
+}
+
+<div class="container">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">Booking Details</h4>
+            <span class="badge @badgeClass">@statusText</span>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    @if (Model.Car != null)
+                    {
+                        <img src="@(string.IsNullOrEmpty(Model.Car.ImageUrl) ? "/images/default-car.jpg" : Model.Car.ImageUrl)" 
+                             class="img-fluid rounded" alt="@Model.Car.GetFullName()"
+                             style="width: 100%; object-fit: cover;"
+                             onerror="this.onerror=null; this.src='/images/default-car.jpg';" />
+                    }
+                </div>
+                <div class="col-md-8">
+                    @if (Model.Car != null)
+                    {
+                        <h5>@Model.Car.GetFullName()</h5>
+                        <p class="text-muted">Daily Rate: @Model.Car.GetFormattedDailyRate()</p>
+                    }
+
+                    <div class="mb-3">
+                        <label class="fw-bold">Duration:</label>
+                        <p class="mb-0">@Model.GetDurationInDays() days</p>
+                        <small class="text-muted">
+                            From @Model.StartDate.ToString("MMM dd, yyyy") to @Model.EndDate.ToString("MMM dd, yyyy")
+                        </small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="fw-bold">Total Price:</label>
+                        <p class="mb-0">@Model.GetFormattedPrice()</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer bg-transparent">
+            <div class="d-flex justify-content-between">
+                <a asp-action="Index" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-left"></i> Back to List
+                </a>
+                @{
+                    if (Model.IsUpcoming() && !Model.IsCancelled)
+                    {
+                        <a asp-action="Cancel" asp-route-id="@Model.Id" class="btn btn-danger">
+                            <i class="fas fa-times-circle"></i> Cancel Booking
+                        </a>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

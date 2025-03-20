@@ -1,0 +1,111 @@
+@model IEnumerable<CarRentalWeb.Models.Booking>
+
+@{
+    ViewData["Title"] = "My Bookings";
+}
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>My Bookings</h1>
+        <a asp-controller="Cars" asp-action="Index" class="btn btn-primary">
+            <i class="fas fa-car"></i> Browse Cars
+        </a>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info" role="alert">
+            <i class="fas fa-info-circle"></i> You don't have any bookings yet.
+            <a asp-controller="Cars" asp-action="Index" class="alert-link">Browse available cars</a> to make a booking.
+        </div>
+    }
+    else
+    {
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            @foreach (var booking in Model)
+            {
+                string badgeClass = booking.IsCancelled ? "bg-danger" :
+                                  booking.IsActive() ? "bg-success" :
+                                  booking.IsUpcoming() ? "bg-info" : "bg-secondary";
+
+                string statusText = booking.IsCancelled ? "Cancelled" :
+                                  booking.IsActive() ? "Active" :
+                                  booking.IsUpcoming() ? "Upcoming" : "Completed";
+
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <span class="badge @badgeClass">@statusText</span>
+                            <small class="text-muted">Booking #@booking.Id</small>
+                        </div>
+                        
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                @if (booking.Car != null)
+                                {
+                                    <img src="@(string.IsNullOrEmpty(booking.Car.ImageUrl) ? "/images/default-car.jpg" : booking.Car.ImageUrl)" 
+                                         class="img-fluid rounded-start" alt="@booking.Car.GetFullName()"
+                                         style="height: 100%; object-fit: cover;"
+                                         onerror="this.onerror=null; this.src='/images/default-car.jpg';" />
+                                }
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    @if (booking.Car != null)
+                                    {
+                                        <h5 class="card-title">@booking.Car.GetFullName()</h5>
+                                    }
+                                    <p class="card-text">
+                                        <small class="text-muted">
+                                            <i class="far fa-calendar"></i> @booking.GetFormattedDates()
+                                        </small>
+                                    </p>
+                                    <p class="card-text">
+                                        <strong>Total Price:</strong> @booking.GetFormattedPrice()<br />
+                                        <small class="text-muted">
+                                            (@booking.GetDurationInDays() days at @(booking.Car?.GetFormattedDailyRate() ?? "$0.00") per day)
+                                        </small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-footer bg-transparent">
+                            <div class="btn-group w-100">
+                                <a asp-action="Details" asp-route-id="@booking.Id" 
+                                   class="btn btn-outline-primary">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </a>
+                                @if (booking.IsUpcoming() && !booking.IsCancelled)
+                                {
+                                    <a asp-action="Cancel" asp-route-id="@booking.Id" 
+                                       class="btn btn-outline-danger">
+                                        <i class="fas fa-times-circle"></i> Cancel
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('.alert').alert('close');
+            }, 5000);
+        });
+    </script>
+}

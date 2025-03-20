@@ -1,0 +1,161 @@
+@model CarRentalWeb.Models.Car
+
+@{
+    ViewData["Title"] = "Edit Car";
+}
+
+<div class="container">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index">Cars</a></li>
+            <li class="breadcrumb-item"><a asp-action="Details" asp-route-id="@Model.Id">@Model.GetFullName()</a></li>
+            <li class="breadcrumb-item active">Edit</li>
+        </ol>
+    </nav>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Edit Car Details</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit" class="needs-validation" novalidate>
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="imagePreview" class="mb-3">
+                                    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                                    {
+                                        <img src="@Model.ImageUrl" class="img-fluid rounded" alt="@Model.GetFullName()" 
+                                             style="max-height: 300px; width: 100%; object-fit: cover;" />
+                                    }
+                                    else
+                                    {
+                                        <div class="d-flex align-items-center justify-content-center bg-light rounded" style="height: 300px;">
+                                            <i class="fas fa-car fa-4x text-secondary"></i>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Brand" class="form-label required"></label>
+                                    <input asp-for="Brand" class="form-control" required />
+                                    <span asp-validation-for="Brand" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label asp-for="Model" class="form-label required"></label>
+                                    <input asp-for="Model" class="form-control" required />
+                                    <span asp-validation-for="Model" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label asp-for="DailyRate" class="form-label required"></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input asp-for="DailyRate" class="form-control" type="number" step="0.01" min="0.01" required />
+                                    </div>
+                                    <span asp-validation-for="DailyRate" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label asp-for="ImageUrl" class="form-label">Image URL</label>
+                                    <input asp-for="ImageUrl" class="form-control" id="imageUrlInput" />
+                                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                                    <div class="mt-2">
+                                        <button type="button" class="btn btn-outline-secondary btn-sm" id="previewButton">
+                                            <i class="fas fa-eye"></i> Preview Image
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="form-check form-switch">
+                                        <input asp-for="IsAvailable" class="form-check-input" />
+                                        <label asp-for="IsAvailable" class="form-check-label"></label>
+                                    </div>
+                                    <span asp-validation-for="IsAvailable" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-4">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Back to List
+                            </a>
+                            <div class="btn-group">
+                                <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-info">
+                                    <i class="fas fa-eye"></i> View Details
+                                </a>
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-save"></i> Save Changes
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .required::after {
+        content: " *";
+        color: red;
+    }
+</style>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $(document).ready(function () {
+            function previewImage(url) {
+                if (!url) {
+                    showDefaultImage();
+                    return;
+                }
+
+                var img = $('<img>')
+                    .attr('src', url)
+                    .addClass('img-fluid rounded')
+                    .attr('alt', 'Car Preview')
+                    .css({
+                        'max-height': '300px',
+                        'width': '100%',
+                        'object-fit': 'cover'
+                    });
+
+                img.on('error', function() {
+                    showDefaultImage();
+                    alert('Invalid image URL or image not accessible.');
+                });
+
+                $('#imagePreview').html(img);
+            }
+
+            function showDefaultImage() {
+                var placeholder = `
+                    <div class="d-flex align-items-center justify-content-center bg-light rounded" style="height: 300px;">
+                        <i class="fas fa-car fa-4x text-secondary"></i>
+                    </div>`;
+                $('#imagePreview').html(placeholder);
+            }
+
+            $('#previewButton').on('click', function() {
+                previewImage($('#imageUrlInput').val());
+            });
+
+            $('#imageUrlInput').on('change', function() {
+                if (!this.value) {
+                    showDefaultImage();
+                }
+            });
+        });
+    </script>
+}
