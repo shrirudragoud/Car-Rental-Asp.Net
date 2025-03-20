@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fh1vGcY2mBBG9CTxnMkhIeniPsmrJLcPAC77/UCh/8w=",
+  "Hash": "RaQMmaujFYz08vbdCsrschu4tX0/Itwfr/Pgr7qNweg=",
   "Source": "CarRentalWeb",
   "BasePath": "_content/CarRentalWeb",
   "Mode": "Default",
@@ -1359,27 +1359,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\obj\\Debug\\net9.0\\compressed\\0ehn2wwwv8-vro1gemyf8.gz",
-      "SourceId": "CarRentalWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/CarRentalWeb",
-      "RelativePath": "images/README#[.{fingerprint=vro1gemyf8}]?.txt.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\images\\README.txt",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "mbnq89hgea",
-      "Integrity": "ktSZXcBjcLB7imiD2ZduDOFTg4SQ2oSi7+yKJ4Dwf+A=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\images\\README.txt"
     },
     {
       "Identity": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\obj\\Debug\\net9.0\\compressed\\0k1i85ntyh-6cfz1n2cew.gz",
@@ -4105,19 +4084,19 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "5ipweew5fc",
-      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
+      "Fingerprint": "pnf1jyycnd",
+      "Integrity": "ex+Y5Gss/yWj1cqHdbkgcTiI+fIeyIpPlfPBuHiAODA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\default-car.jpg"
     },
     {
-      "Identity": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\images\\README.txt",
+      "Identity": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\images\\toyota-camry-1.jpg",
       "SourceId": "CarRentalWeb",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\",
       "BasePath": "_content/CarRentalWeb",
-      "RelativePath": "images/README#[.{fingerprint}]?.txt",
+      "RelativePath": "images/toyota-camry-1#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -4126,11 +4105,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "vro1gemyf8",
-      "Integrity": "VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo=",
+      "Fingerprint": "q9of0lxui2",
+      "Integrity": "YtOeOiq/KD6Zyhs4ZrypfZCfNLwQdpbO1PO7I7UcknI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\README.txt"
+      "OriginalItemSpec": "wwwroot\\images\\toyota-camry-1.jpg"
     },
     {
       "Identity": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\js\\site.js",
@@ -15213,51 +15192,6 @@
       ]
     },
     {
-      "Route": "images/default-car.5ipweew5fc.jpg",
-      "AssetFile": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\images\\default-car.jpg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "0"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/jpeg"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 18:18:27 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "5ipweew5fc"
-        },
-        {
-          "Name": "label",
-          "Value": "images/default-car.jpg"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
-        }
-      ]
-    },
-    {
       "Route": "images/default-car.jpg",
       "AssetFile": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\images\\default-car.jpg",
       "Selectors": [],
@@ -15268,7 +15202,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "0"
+          "Value": "45196"
         },
         {
           "Name": "Content-Type",
@@ -15276,11 +15210,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+          "Value": "\"ex+Y5Gss/yWj1cqHdbkgcTiI+fIeyIpPlfPBuHiAODA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 18:18:27 GMT"
+          "Value": "Thu, 20 Mar 2025 09:15:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15290,68 +15224,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+          "Value": "sha256-ex+Y5Gss/yWj1cqHdbkgcTiI+fIeyIpPlfPBuHiAODA="
         }
       ]
     },
     {
-      "Route": "images/README.txt",
-      "AssetFile": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\obj\\Debug\\net9.0\\compressed\\0ehn2wwwv8-vro1gemyf8.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.004566210046"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "218"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ktSZXcBjcLB7imiD2ZduDOFTg4SQ2oSi7+yKJ4Dwf+A=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 17:05:40 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo="
-        }
-      ]
-    },
-    {
-      "Route": "images/README.txt",
-      "AssetFile": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\images\\README.txt",
+      "Route": "images/default-car.pnf1jyycnd.jpg",
+      "AssetFile": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\images\\default-car.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -15360,164 +15239,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "283"
+          "Value": "45196"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/plain"
+          "Value": "image/jpeg"
         },
         {
           "Name": "ETag",
-          "Value": "\"VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo=\""
+          "Value": "\"ex+Y5Gss/yWj1cqHdbkgcTiI+fIeyIpPlfPBuHiAODA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 17:05:40 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo="
-        }
-      ]
-    },
-    {
-      "Route": "images/README.txt.gz",
-      "AssetFile": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\obj\\Debug\\net9.0\\compressed\\0ehn2wwwv8-vro1gemyf8.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "218"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ktSZXcBjcLB7imiD2ZduDOFTg4SQ2oSi7+yKJ4Dwf+A=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 17:05:40 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-ktSZXcBjcLB7imiD2ZduDOFTg4SQ2oSi7+yKJ4Dwf+A="
-        }
-      ]
-    },
-    {
-      "Route": "images/README.vro1gemyf8.txt",
-      "AssetFile": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\obj\\Debug\\net9.0\\compressed\\0ehn2wwwv8-vro1gemyf8.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.004566210046"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "218"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ktSZXcBjcLB7imiD2ZduDOFTg4SQ2oSi7+yKJ4Dwf+A=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 17:05:40 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "vro1gemyf8"
-        },
-        {
-          "Name": "label",
-          "Value": "images/README.txt"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo="
-        }
-      ]
-    },
-    {
-      "Route": "images/README.vro1gemyf8.txt",
-      "AssetFile": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\images\\README.txt",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "283"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 17:05:40 GMT"
+          "Value": "Thu, 20 Mar 2025 09:15:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15527,21 +15261,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "vro1gemyf8"
+          "Value": "pnf1jyycnd"
         },
         {
           "Name": "label",
-          "Value": "images/README.txt"
+          "Value": "images/default-car.jpg"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo="
+          "Value": "sha256-ex+Y5Gss/yWj1cqHdbkgcTiI+fIeyIpPlfPBuHiAODA="
         }
       ]
     },
     {
-      "Route": "images/README.vro1gemyf8.txt.gz",
-      "AssetFile": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\obj\\Debug\\net9.0\\compressed\\0ehn2wwwv8-vro1gemyf8.gz",
+      "Route": "images/toyota-camry-1.jpg",
+      "AssetFile": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\images\\toyota-camry-1.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -15550,45 +15284,74 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "218"
+          "Value": "7728"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/plain"
+          "Value": "image/jpeg"
         },
         {
           "Name": "ETag",
-          "Value": "\"ktSZXcBjcLB7imiD2ZduDOFTg4SQ2oSi7+yKJ4Dwf+A=\""
+          "Value": "\"YtOeOiq/KD6Zyhs4ZrypfZCfNLwQdpbO1PO7I7UcknI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 17:05:40 GMT"
+          "Value": "Thu, 20 Mar 2025 09:27:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YtOeOiq/KD6Zyhs4ZrypfZCfNLwQdpbO1PO7I7UcknI="
+        }
+      ]
+    },
+    {
+      "Route": "images/toyota-camry-1.q9of0lxui2.jpg",
+      "AssetFile": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\images\\toyota-camry-1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7728"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YtOeOiq/KD6Zyhs4ZrypfZCfNLwQdpbO1PO7I7UcknI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 20 Mar 2025 09:27:04 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "vro1gemyf8"
+          "Value": "q9of0lxui2"
         },
         {
           "Name": "label",
-          "Value": "images/README.txt.gz"
+          "Value": "images/toyota-camry-1.jpg"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ktSZXcBjcLB7imiD2ZduDOFTg4SQ2oSi7+yKJ4Dwf+A="
+          "Value": "sha256-YtOeOiq/KD6Zyhs4ZrypfZCfNLwQdpbO1PO7I7UcknI="
         }
       ]
     },

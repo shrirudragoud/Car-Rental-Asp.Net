@@ -16,10 +16,11 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="@(string.IsNullOrEmpty(Model.ImageUrl) ? "/images/default-car.jpg" : Model.ImageUrl)" 
-                         class="img-fluid rounded" alt="@Model.GetFullName()"
-                         style="width: 100%; object-fit: cover;"
-                         onerror="this.onerror=null; this.src='/images/default-car.jpg';" />
+                    <img src="@Model.ImageUrl" 
+                         class="img-fluid rounded" 
+                         alt="@Model.GetFullName()"
+                         style="width: 100%; object-fit: cover; max-height: 400px;"
+                         onerror="this.src='/images/default-car.jpg'" />
                 </div>
                 <div class="col-md-6">
                     <h5>@Model.GetFullName()</h5>
@@ -30,7 +31,10 @@
                         <div class="mb-4">
                             <h6>Upcoming Bookings:</h6>
                             <div class="list-group">
-                                @foreach (var booking in Model.Bookings.Where(b => !b.IsCancelled && b.EndDate >= DateTime.Today).OrderBy(b => b.StartDate).Take(3))
+                                @foreach (var booking in Model.Bookings
+                                    .Where(b => !b.IsCancelled && b.EndDate >= DateTime.Today)
+                                    .OrderBy(b => b.StartDate)
+                                    .Take(3))
                                 {
                                     string statusClass = booking.IsCancelled ? "bg-danger" :
                                                        booking.IsActive() ? "bg-success" :
@@ -67,21 +71,21 @@
                                     <i class="fas fa-ban"></i> Not Available
                                 </button>
                             }
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i> Delete
+                                </a>
+                            }
                         }
                         else
                         {
                             <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary">
                                 <i class="fas fa-sign-in-alt"></i> Login to Book
-                            </a>
-                        }
-
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
-                                <i class="fas fa-edit"></i> Edit
-                            </a>
-                            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">
-                                <i class="fas fa-trash"></i> Delete
                             </a>
                         }
 

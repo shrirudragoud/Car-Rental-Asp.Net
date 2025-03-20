@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    @if (Model != null && Model.Any())
+    @if (Model?.Any() == true)
     {
         <h2 class="mb-4">Featured Cars</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -27,14 +27,22 @@
             {
                 <div class="col">
                     <div class="card h-100 shadow-sm">
-                        <img src="@(string.IsNullOrEmpty(car.ImageUrl) ? "/images/default-car.jpg" : car.ImageUrl)" 
-                             class="card-img-top" alt="@car.GetFullName()"
-                             style="height: 200px; object-fit: cover;"
-                             onerror="this.onerror=null; this.src='/images/default-car.jpg';" />
+                        <a asp-controller="Cars" asp-action="Details" asp-route-id="@car.Id" class="text-decoration-none">
+                            <img src="@car.ImageUrl" 
+                                 class="card-img-top" 
+                                 alt="@car.GetFullName()"
+                                 style="height: 200px; object-fit: cover;"
+                                 onerror="this.src='/images/default-car.jpg'" />
+                        </a>
                         
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start">
-                                <h5 class="card-title mb-0">@car.GetFullName()</h5>
+                                <h5 class="card-title mb-0">
+                                    <a asp-controller="Cars" asp-action="Details" asp-route-id="@car.Id" 
+                                       class="text-decoration-none text-dark">
+                                        @car.GetFullName()
+                                    </a>
+                                </h5>
                                 <span class="badge @(car.IsAvailable ? "bg-success" : "bg-danger")">
                                     @(car.IsAvailable ? "Available" : "Not Available")
                                 </span>
@@ -72,7 +80,7 @@
                 </div>
             }
         </div>
-        
+
         <div class="text-center mt-4">
             <a asp-controller="Cars" asp-action="Index" class="btn btn-outline-primary btn-lg">
                 <i class="fas fa-car"></i> View All Cars

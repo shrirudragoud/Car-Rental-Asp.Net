@@ -320,6 +320,6 @@ C:\Users\HP\OneDrive\Desktop\Car Rental\CarRentalWeb\bin\Debug\net9.0\runtimes\w
 C:\Users\HP\OneDrive\Desktop\Car Rental\CarRentalWeb\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\HP\OneDrive\Desktop\Car Rental\CarRentalWeb\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\HP\OneDrive\Desktop\Car Rental\CarRentalWeb\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\HP\OneDrive\Desktop\Car Rental\CarRentalWeb\obj\Debug\net9.0\compressed\0ehn2wwwv8-vro1gemyf8.gz
 C:\Users\HP\OneDrive\Desktop\Car Rental\CarRentalWeb\obj\Debug\net9.0\compressed\3x02hhhql4-4drozk0jxm.gz
 C:\Users\HP\OneDrive\Desktop\Car Rental\CarRentalWeb\obj\Debug\net9.0\compressed\srizy54306-ww946p1b70.gz
+C:\Users\HP\OneDrive\Desktop\Car Rental\CarRentalWeb\obj\Debug\net9.0\CarRentalWeb.sourcelink.json

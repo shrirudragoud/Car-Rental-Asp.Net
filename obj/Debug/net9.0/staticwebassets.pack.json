@@ -13,12 +13,12 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\images\\README.txt",
-      "PackagePath": "staticwebassets\\images\\README.txt"
-    },
-    {
       "Id": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\images\\default-car.jpg",
       "PackagePath": "staticwebassets\\images\\default-car.jpg"
+    },
+    {
+      "Id": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\images\\toyota-camry-1.jpg",
+      "PackagePath": "staticwebassets\\images\\toyota-camry-1.jpg"
     },
     {
       "Id": "C:\\Users\\HP\\OneDrive\\Desktop\\Car Rental\\CarRentalWeb\\wwwroot\\js\\site.js",

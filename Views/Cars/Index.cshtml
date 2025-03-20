@@ -9,126 +9,117 @@
         <h1>Available Cars</h1>
         @if (User.IsInRole("Admin"))
         {
-            <div class="btn-group">
+            <div>
                 <a asp-action="Create" class="btn btn-primary">
                     <i class="fas fa-plus"></i> Add New Car
                 </a>
-                <a asp-action="AddSampleCars" class="btn btn-success">
-                    <i class="fas fa-database"></i> Add Sample Cars
-                </a>
+                @if (!Model.Any())
+                {
+                    <a asp-action="AddSampleCars" class="btn btn-success ms-2">
+                        <i class="fas fa-database"></i> Add Sample Cars
+                    </a>
+                }
             </div>
         }
     </div>
-
-    @if (TempData["Success"] != null)
-    {
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            @TempData["Success"]
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    }
 
     @if (!Model.Any())
     {
-        <div class="alert alert-info" role="alert">
+        <div class="alert alert-info">
             <i class="fas fa-info-circle"></i> No cars available at the moment.
-            @if (User.IsInRole("Admin"))
-            {
-                <span>Click on "Add Sample Cars" to populate the catalog.</span>
-            }
         </div>
     }
-
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        @foreach (var car in Model)
-        {
-            <div class="col">
-                <div class="card h-100 shadow-sm car-card">
-                    <img src="@(string.IsNullOrEmpty(car.ImageUrl) ? "/images/default-car.jpg" : car.ImageUrl)" 
-                         class="card-img-top" alt="@car.GetFullName()"
-                         style="height: 200px; object-fit: cover;"
-                         onerror="this.onerror=null; this.src='/images/default-car.jpg';">
-                    
-                    <div class="card-body">
-                        <h5 class="card-title">@car.GetFullName()</h5>
-                        <p class="card-text">
-                            <span class="price-display">@car.GetFormattedDailyRate()</span> / day
-                        </p>
-                        <div class="mt-2">
-                            @if (car.IsAvailable)
-                            {
-                                <span class="badge bg-success">Available</span>
-                            }
-                            else
-                            {
-                                <span class="badge bg-danger">Not Available</span>
-                            }
+    else
+    {
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var car in Model)
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <a asp-action="Details" asp-route-id="@car.Id" class="text-decoration-none">
+                            <img src="@(string.IsNullOrEmpty(car.ImageUrl) ? 
+                                      Url.Content("~/images/default-car.jpg") : 
+                                      car.ImageUrl)" 
+                                 class="card-img-top"
+                                 alt="@car.GetFullName()"
+                                 style="height: 200px; object-fit: cover;"
+                                 onerror="this.onerror=null; this.src='@Url.Content("~/images/default-car.jpg")';"
+                                 loading="lazy" />
+                        </a>
+                        
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <h5 class="card-title mb-0">
+                                    <a asp-action="Details" asp-route-id="@car.Id" class="text-decoration-none text-dark">
+                                        @car.GetFullName()
+                                    </a>
+                                </h5>
+                                <span class="badge @(car.IsAvailable ? "bg-success" : "bg-danger")">
+                                    @(car.IsAvailable ? "Available" : "Not Available")
+                                </span>
+                            </div>
+                            <p class="card-text text-muted mt-2">@car.GetFormattedDailyRate() per day</p>
                         </div>
-                    </div>
 
-                    <div class="card-footer bg-transparent border-top-0">
-                        <div class="btn-group w-100">
-                            <a asp-action="Details" asp-route-id="@car.Id" 
-                               class="btn btn-outline-primary">
-                                <i class="fas fa-info-circle"></i> Details
-                            </a>
-                            @if (car.IsAvailable && User.Identity.IsAuthenticated)
-                            {
-                                <a asp-controller="Bookings" asp-action="Create" asp-route-carId="@car.Id" 
-                                   class="btn btn-primary">
-                                    <i class="fas fa-calendar-plus"></i> Book Now
-                                </a>
-                            }
-                            @if (User.IsInRole("Admin"))
-                            {
-                                <a asp-action="Edit" asp-route-id="@car.Id" 
-                                   class="btn btn-outline-secondary">
-                                    <i class="fas fa-edit"></i> Edit
-                                </a>
-                            }
+                        <div class="card-footer bg-transparent">
+                            <div class="d-grid gap-2">
+                                @if (User.Identity?.IsAuthenticated ?? false)
+                                {
+                                    if (car.IsAvailable)
+                                    {
+                                        <a asp-controller="Bookings" asp-action="Create" asp-route-carId="@car.Id"
+                                           class="btn btn-success">
+                                            <i class="fas fa-calendar-plus"></i> Book Now
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <button class="btn btn-secondary" disabled>
+                                            <i class="fas fa-ban"></i> Not Available
+                                        </button>
+                                    }
+
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <div class="btn-group w-100">
+                                            <a asp-action="Edit" asp-route-id="@car.Id" 
+                                               class="btn btn-warning">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                            <a asp-action="Delete" asp-route-id="@car.Id" 
+                                               class="btn btn-danger">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </a>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary">
+                                        <i class="fas fa-sign-in-alt"></i> Login to Book
+                                    </a>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        }
-    </div>
+            }
+        </div>
+    }
 </div>
 
-<style>
-    .car-card {
-        transition: all 0.3s ease;
-    }
-
-    .car-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .price-display {
-        font-size: 1.25rem;
-        font-weight: bold;
-        color: #198754;
-    }
-
-    .card-img-top {
-        border-bottom: 1px solid rgba(0,0,0,.125);
-    }
-
-    .btn-group {
-        gap: 5px;
-    }
-</style>
-
-@section Scripts 
-{
+@section Scripts {
     <script>
-        $(document).ready(function() {
-            // Fade out alerts after 5 seconds
-            setTimeout(function() {
-                $('.alert').alert('close');
-            }, 5000);
-
-            // Initialize tooltips
-            $('[data-bs-toggle="tooltip"]').tooltip();
+        // Add a small delay before loading images to prevent overwhelming the server
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            let delay = 0;
+            images.forEach(img => {
+                setTimeout(() => {
+                    img.src = img.src;
+                }, delay);
+                delay += 100;
+            });
         });
     </script>
 }

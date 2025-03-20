@@ -9428,349 +9428,6 @@
       ]
     },
     {
-      "Route": "images/README.txt",
-      "AssetFile": "images/README.txt.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.004566210046"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "218"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ktSZXcBjcLB7imiD2ZduDOFTg4SQ2oSi7+yKJ4Dwf+A=\""
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 17:05:40 GMT"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo="
-        }
-      ]
-    },
-    {
-      "Route": "images/README.txt",
-      "AssetFile": "images/README.txt",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "283"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 17:05:40 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo="
-        }
-      ]
-    },
-    {
-      "Route": "images/README.txt.gz",
-      "AssetFile": "images/README.txt.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "218"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ktSZXcBjcLB7imiD2ZduDOFTg4SQ2oSi7+yKJ4Dwf+A=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 17:05:40 GMT"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-ktSZXcBjcLB7imiD2ZduDOFTg4SQ2oSi7+yKJ4Dwf+A="
-        }
-      ]
-    },
-    {
-      "Route": "images/README.vro1gemyf8.txt",
-      "AssetFile": "images/README.txt.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.004566210046"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "218"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ktSZXcBjcLB7imiD2ZduDOFTg4SQ2oSi7+yKJ4Dwf+A=\""
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 17:05:40 GMT"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "vro1gemyf8"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo="
-        },
-        {
-          "Name": "label",
-          "Value": "images/README.txt"
-        }
-      ]
-    },
-    {
-      "Route": "images/README.vro1gemyf8.txt",
-      "AssetFile": "images/README.txt",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "283"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 17:05:40 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "vro1gemyf8"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-VeQAP1AbQZ2BDjJVyxAb9oZZHnz0yP3DtYbghR/yzCo="
-        },
-        {
-          "Name": "label",
-          "Value": "images/README.txt"
-        }
-      ]
-    },
-    {
-      "Route": "images/README.vro1gemyf8.txt.gz",
-      "AssetFile": "images/README.txt.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "218"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ktSZXcBjcLB7imiD2ZduDOFTg4SQ2oSi7+yKJ4Dwf+A=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 17:05:40 GMT"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "vro1gemyf8"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-ktSZXcBjcLB7imiD2ZduDOFTg4SQ2oSi7+yKJ4Dwf+A="
-        },
-        {
-          "Name": "label",
-          "Value": "images/README.txt.gz"
-        }
-      ]
-    },
-    {
-      "Route": "images/default-car.5ipweew5fc.jpg",
-      "AssetFile": "images/default-car.jpg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "0"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/jpeg"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 18:18:27 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "5ipweew5fc"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
-        },
-        {
-          "Name": "label",
-          "Value": "images/default-car.jpg"
-        }
-      ]
-    },
-    {
       "Route": "images/default-car.jpg",
       "AssetFile": "images/default-car.jpg",
       "Selectors": [],
@@ -9785,7 +9442,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "0"
+          "Value": "45196"
         },
         {
           "Name": "Content-Type",
@@ -9793,17 +9450,144 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+          "Value": "\"ex+Y5Gss/yWj1cqHdbkgcTiI+fIeyIpPlfPBuHiAODA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 18:18:27 GMT"
+          "Value": "Thu, 20 Mar 2025 09:15:54 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+          "Value": "sha256-ex+Y5Gss/yWj1cqHdbkgcTiI+fIeyIpPlfPBuHiAODA="
+        }
+      ]
+    },
+    {
+      "Route": "images/default-car.pnf1jyycnd.jpg",
+      "AssetFile": "images/default-car.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "45196"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ex+Y5Gss/yWj1cqHdbkgcTiI+fIeyIpPlfPBuHiAODA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 20 Mar 2025 09:15:54 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pnf1jyycnd"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ex+Y5Gss/yWj1cqHdbkgcTiI+fIeyIpPlfPBuHiAODA="
+        },
+        {
+          "Name": "label",
+          "Value": "images/default-car.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "images/toyota-camry-1.jpg",
+      "AssetFile": "images/toyota-camry-1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7728"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YtOeOiq/KD6Zyhs4ZrypfZCfNLwQdpbO1PO7I7UcknI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 20 Mar 2025 09:27:04 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YtOeOiq/KD6Zyhs4ZrypfZCfNLwQdpbO1PO7I7UcknI="
+        }
+      ]
+    },
+    {
+      "Route": "images/toyota-camry-1.q9of0lxui2.jpg",
+      "AssetFile": "images/toyota-camry-1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7728"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YtOeOiq/KD6Zyhs4ZrypfZCfNLwQdpbO1PO7I7UcknI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 20 Mar 2025 09:27:04 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "q9of0lxui2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YtOeOiq/KD6Zyhs4ZrypfZCfNLwQdpbO1PO7I7UcknI="
+        },
+        {
+          "Name": "label",
+          "Value": "images/toyota-camry-1.jpg"
         }
       ]
     },
